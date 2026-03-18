@@ -1,0 +1,92 @@
+/* ============================================================
+   FloatingWhatsApp.module.css
+   Botão flutuante fixo no canto inferior direito
+   ============================================================ */
+
+.fab {
+    /* Posicionamento fixo */
+    position: fixed;
+    bottom: 28px;
+    right: 24px;
+    z-index: 9999;
+
+    /* Aparência */
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: #25D366;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Sombra */
+    box-shadow:
+        0 4px 20px rgba(37, 211, 102, 0.45),
+        0 2px 8px rgba(0, 0, 0, 0.35);
+
+    /* Transição de entrada/saída */
+    opacity: 0;
+    transform: scale(0.6) translateY(20px);
+    pointer-events: none;
+    transition:
+        opacity 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+        transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow 0.2s ease;
+}
+
+/* Visível quando .visible é aplicado */
+.fab.visible {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    pointer-events: auto;
+}
+
+.fab:hover {
+    box-shadow:
+        0 8px 32px rgba(37, 211, 102, 0.6),
+        0 4px 12px rgba(0, 0, 0, 0.4);
+    transform: scale(1.08) translateY(-2px);
+}
+
+/* ── Pulso dourado de atenção ────────────────────────────── */
+.pulse {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 2px solid rgba(37, 211, 102, 0.6);
+    animation: pulseRing 2.4s ease-out infinite;
+    pointer-events: none;
+}
+
+@keyframes pulseRing {
+    0% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+
+    70% {
+        transform: scale(1.55);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1.55);
+        opacity: 0;
+    }
+}
+
+/* ── Mobile: posição um pouco mais acima para não sobrepor barra do browser ── */
+@media (max-width: 768px) {
+    .fab {
+        bottom: 20px;
+        right: 16px;
+        width: 52px;
+        height: 52px;
+    }
+
+    .fab svg {
+        width: 22px;
+        height: 22px;
+    }
+}

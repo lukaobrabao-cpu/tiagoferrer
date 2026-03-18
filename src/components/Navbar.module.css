@@ -1,0 +1,103 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 20px 0;
+    transition: background 0.4s ease, padding 0.3s ease, border-color 0.4s ease;
+    border-bottom: 1px solid transparent;
+}
+
+.navbar.scrolled {
+    background: rgba(0, 0, 0, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 14px 0;
+    border-bottom-color: rgba(198, 168, 90, 0.15);
+}
+
+.inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.logoName {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    color: #C6A85A;
+}
+
+.logoSub {
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #888;
+}
+
+.ctaBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #C6A85A, #9A7A38);
+    color: #000;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 11px 22px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+}
+
+.ctaBtn svg {
+    width: 16px;
+    height: 16px;
+}
+
+.ctaBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(198, 168, 90, 0.4);
+    filter: brightness(1.1);
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 14px 0;
+    }
+
+    .logoName {
+        font-size: 0.9rem;
+    }
+
+    .logoSub {
+        display: none;
+    }
+
+    /* Esconde o texto, mantém só o ícone */
+    .ctaBtn span {
+        display: none;
+    }
+
+    .ctaBtn {
+        padding: 10px 14px;
+        clip-path: none;
+        border-radius: 4px;
+        gap: 0;
+    }
+
+    .ctaBtn svg {
+        width: 22px;
+        height: 22px;
+    }
+}

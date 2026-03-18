@@ -1,0 +1,151 @@
+/* ============================================================
+   SectionCTA.module.css — Botão pulsante ao fim de cada dobra
+   ============================================================ */
+
+.wrap {
+    display: flex;
+    justify-content: center;
+    padding: 48px 20px 56px;
+    background: transparent;
+}
+
+.btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+
+    background: linear-gradient(135deg, #E2C97A 0%, #C6A85A 50%, #9A7A38 100%);
+    color: #000;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    padding: 20px 44px;
+    border-radius: 2px;
+
+    /* Borda brilhante */
+    outline: 2px solid rgba(198, 168, 90, 0.4);
+    outline-offset: 4px;
+
+    box-shadow:
+        0 0 0 1px rgba(226, 201, 122, 0.3),
+        0 10px 40px rgba(198, 168, 90, 0.55),
+        0 2px 8px rgba(0, 0, 0, 0.4);
+
+    transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+
+    animation: btnPulse 2.2s ease-in-out infinite;
+}
+
+.btn:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow:
+        0 16px 48px rgba(198, 168, 90, 0.65),
+        0 4px 16px rgba(0, 0, 0, 0.45);
+    filter: brightness(1.08);
+    animation-play-state: paused;
+    /* para o pulso no hover */
+}
+
+@keyframes btnPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        box-shadow: 0 8px 32px rgba(198, 168, 90, .45), 0 2px 8px rgba(0, 0, 0, .4);
+    }
+
+    50% {
+        transform: scale(1.04);
+        box-shadow: 0 12px 44px rgba(198, 168, 90, .65), 0 4px 12px rgba(0, 0, 0, .4);
+    }
+}
+
+/* Anel pulsante ao redor */
+.ring {
+    position: absolute;
+    inset: -4px;
+    border-radius: 4px;
+    border: 2px solid rgba(198, 168, 90, 0.5);
+    animation: ringPulse 2.6s ease-out infinite;
+    pointer-events: none;
+}
+
+@keyframes ringPulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+
+    70% {
+        transform: scale(1.08);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1.08);
+        opacity: 0;
+    }
+}
+
+/* Ícone WhatsApp */
+.icon {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+}
+
+/* Texto do botão */
+.text {
+    line-height: 1.2;
+}
+
+/* Seta com animação de slide */
+.arrow {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    animation: arrowSlide 1.4s ease-in-out infinite;
+}
+
+@keyframes arrowSlide {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(5px);
+    }
+}
+
+/* ── Responsivo ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .wrap {
+        padding: 36px 20px 44px;
+    }
+
+    .btn {
+        font-size: 0.85rem;
+        padding: 16px 24px;
+        gap: 10px;
+        width: 100%;
+        max-width: 380px;
+        justify-content: center;
+    }
+
+    .icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .arrow {
+        display: none;
+        /* esconde seta no mobile para não amontoar */
+    }
+}

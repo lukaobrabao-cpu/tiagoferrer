@@ -1,0 +1,217 @@
+/* src/components/Pricing.module.css */
+
+.section {
+    padding: var(--section-pad);
+    background-color: var(--black);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Fundo radial simulando holofote de luxo */
+.section::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60vw;
+    height: 60vw;
+    background: radial-gradient(circle, rgba(198,168,90,0.04) 0%, transparent 60%);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.wrapper {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: var(--white-dim);
+    max-width: 600px;
+    margin-top: 10px;
+}
+
+/* ========================================================= */
+/* O CARD PRINCIPAL - ESTILO BLACK FRIDAY PREMIUM             */
+/* ========================================================= */
+.offerCardWrapper {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+/* Brilho pulsante em volta do card inteiro */
+.glowEffect {
+    position: absolute;
+    inset: -3px;
+    background: linear-gradient(135deg, var(--gold) 0%, rgba(198,168,90,0.2) 50%, var(--gold-dark) 100%);
+    filter: blur(20px);
+    opacity: 0.65;
+    border-radius: 20px;
+    animation: pulseGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes pulseGlow {
+    0% { opacity: 0.4; filter: blur(15px); transform: scale(0.99); }
+    100% { opacity: 0.8; filter: blur(25px); transform: scale(1.02); }
+}
+
+.offerCard {
+    position: relative;
+    background: linear-gradient(160deg, var(--black-card) 0%, #151515 100%);
+    border: 1px solid rgba(198, 168, 90, 0.4);
+    border-radius: 16px;
+    padding: 0;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 2px 0 rgba(255,255,255,0.05);
+    overflow: hidden;
+    z-index: 2;
+}
+
+/* Badge (Selo) superior */
+.badgeWrapper {
+    background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-dark));
+    padding: 12px 20px;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), 50% 100%, 0 calc(100% - 10px));
+}
+
+.badge {
+    color: var(--black);
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+}
+
+.cardContent {
+    padding: 40px 30px;
+}
+
+/* Preço antigo */
+.priceOld {
+    color: var(--white-muted);
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.strike {
+    text-decoration: line-through;
+    color: #ff4a4a;
+    font-weight: 600;
+    font-size: 1.15rem;
+}
+
+/* PREÇO PRINCIPAL (10x de...) */
+.priceMain {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 12px;
+    color: var(--gold);
+    text-shadow: 0 0 40px rgba(198, 168, 90, 0.5);
+}
+
+.installments {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--white);
+    text-shadow: none;
+}
+
+.currency {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.value {
+    font-family: var(--font-display);
+    font-size: 4.8rem;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.02em;
+}
+
+/* Preço à vista */
+.priceCash {
+    color: var(--white-dim);
+    font-size: 1.05rem;
+    margin-bottom: 30px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 8px;
+}
+
+.priceCash strong {
+    color: var(--gold-light);
+    font-size: 1.15rem;
+}
+
+/* Urgência / Escassez */
+.urgency {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+    color: var(--gold-light);
+}
+
+.pulseDot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--gold);
+    border-radius: 50%;
+    position: relative;
+}
+
+.pulseDot::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    background-color: var(--gold);
+    border-radius: 50%;
+    opacity: 0.7;
+    animation: pulseDotAnim 1.5s infinite;
+}
+
+@keyframes pulseDotAnim {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(2.5); opacity: 0; }
+}
+
+.ctaWrapper {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .value { font-size: 3.8rem; }
+    .installments { font-size: 1.2rem; }
+    .currency { font-size: 1.4rem; }
+    .cardContent { padding: 30px 20px; }
+    
+    .section::before {
+        width: 100vw;
+        height: 100vw;
+    }
+}

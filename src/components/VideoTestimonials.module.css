@@ -1,0 +1,408 @@
+/* ============================================================
+   VideoTestimonials.module.css — Seção de prova social em vídeo
+   ============================================================ */
+
+.section {
+    padding: var(--section-pad);
+    background: linear-gradient(180deg, #050505 0%, #080808 100%);
+    position: relative;
+}
+
+.section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(198, 168, 90, 0.3), transparent);
+}
+
+/* ── Cabeçalho ────────────────────────────────────────────── */
+.header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.subtitle {
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    max-width: 540px;
+    margin: 0 auto;
+}
+
+/* ── Dores em blocos grandes ─────────────────────────────── */
+.objections {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 64px;
+}
+
+.objectionItem {
+    background: #0A0A0A;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-left: 3px solid rgba(198, 168, 90, 0.5);
+    border-radius: 4px;
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.objectionItem:hover {
+    border-left-color: #C6A85A;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.objectionTop {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.objectionIcon {
+    font-size: 1.6rem;
+    line-height: 1;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.objectionPain {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.5;
+    font-style: italic;
+    margin: 0;
+}
+
+.objectionAnswer {
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.65;
+    padding-left: 36px;
+    /* alinha com o texto depois do ícone */
+    margin: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 12px;
+}
+
+.objectionClient {
+    font-size: 0.78rem;
+    color: #C6A85A;
+    font-style: italic;
+    padding-left: 36px;
+    margin: 0;
+    opacity: 0.8;
+}
+
+/* ── Grid 2×2 ───────────────────────────────────────────── */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+}
+
+/* ── Card ────────────────────────────────────────────────── */
+.card {
+    background: #0D0D0D;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeUp 0.5s ease both;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(198, 168, 90, 0.25);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Tag emocional */
+.tag {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #C6A85A;
+    background: rgba(198, 168, 90, 0.06);
+    border-bottom: 1px solid rgba(198, 168, 90, 0.1);
+}
+
+.tagDot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #C6A85A;
+    animation: blink 1.6s ease-in-out infinite;
+    flex-shrink: 0;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+}
+
+/* ── Área do vídeo ──────────────────────────────────────── */
+.videoWrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    /* vertical — estilo stories/depoimento */
+    background: #000;
+    overflow: hidden;
+    flex: 1;
+}
+
+/* Thumbnail do YouTube */
+.thumbBtn {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    overflow: hidden;
+}
+
+.thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.thumbBtn:hover .thumb {
+    transform: scale(1.04);
+}
+
+.playBtn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(198, 168, 90, 0.9);
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.thumbBtn:hover .playBtn {
+    transform: translate(-50%, -50%) scale(1.12);
+    background: #E2C97A;
+}
+
+/* Iframe do YouTube */
+.iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Vídeo local (após clicar play) */
+.videoEl {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+/* ── Botão de mute/unmute — banner largo e bem visível ────── */
+.muteBtn {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    border: none;
+    background: rgba(0, 0, 0, 0.72);
+    backdrop-filter: blur(6px);
+    color: rgba(255, 255, 255, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 16px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.muteBtn:hover {
+    background: rgba(198, 168, 90, 0.88);
+    color: #000;
+}
+
+/* Quando mutado: dourado pulsante para chamar atenção */
+.muteBtnActive {
+    background: linear-gradient(90deg, rgba(198, 168, 90, 0.85), rgba(226, 201, 122, 0.9));
+    color: #000;
+    font-weight: 700;
+    animation: mutePulse 2s ease-in-out infinite;
+}
+
+@keyframes mutePulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.75; }
+}
+
+/* ── Placeholder exibido ANTES de clicar no play (vídeos locais) ── */
+.videoPlaceholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #0D0D0D;
+    overflow: hidden;
+}
+
+.videoPlaceholderGrad {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 50% 40%, rgba(198, 168, 90, 0.12) 0%, transparent 70%),
+        linear-gradient(180deg, #111 0%, #050505 100%);
+    pointer-events: none;
+}
+
+.videoPlaceholderIcon {
+    position: relative;
+    z-index: 1;
+    color: #C6A85A;
+    margin-bottom: 4px;
+}
+
+.videoPlaceholderName {
+    position: relative;
+    z-index: 1;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0;
+    letter-spacing: 0.04em;
+}
+
+.videoPlaceholderSub {
+    position: relative;
+    z-index: 1;
+    font-size: 0.75rem;
+    color: rgba(198, 168, 90, 0.65);
+    margin: 0;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+/* ── Footer do card ─────────────────────────────────────── */
+.cardFooter {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(198, 168, 90, 0.2), rgba(198, 168, 90, 0.4));
+    border: 1px solid rgba(198, 168, 90, 0.3);
+    color: #C6A85A;
+    font-weight: 700;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.clientName {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+}
+
+.clientSub {
+    font-size: 0.72rem;
+    color: #4CAF50;
+    margin: 2px 0 0;
+}
+
+/* ── Responsivo ─────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .objections {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        margin-bottom: 40px;
+    }
+
+    .objectionItem {
+        padding: 18px 16px;
+    }
+
+    .objectionAnswer,
+    .objectionClient {
+        padding-left: 0;
+    }
+
+    .videoWrap {
+        aspect-ratio: 9 / 14;
+    }
+
+    .header {
+        margin-bottom: 32px;
+    }
+}

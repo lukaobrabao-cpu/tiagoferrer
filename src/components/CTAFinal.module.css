@@ -1,0 +1,108 @@
+.section {
+    padding: clamp(100px, 14vw, 160px) 0;
+    background: #000;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+}
+
+.section::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(198, 168, 90, 0.4), transparent);
+}
+
+.bgGlow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(ellipse, rgba(198, 168, 90, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 900;
+    line-height: 1.15;
+    color: #fff;
+    margin: 16px 0 24px;
+}
+
+.goldAccent {
+    background: linear-gradient(135deg, #E2C97A, #C6A85A, #9A7A38);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.sub {
+    max-width: 540px;
+    font-size: 1rem;
+    color: #888;
+    line-height: 1.75;
+    margin-bottom: 40px;
+}
+
+.ctaArea {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.bigBtn {
+    font-size: 1rem !important;
+    padding: 20px 48px !important;
+}
+
+.benefits {
+    list-style: none;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.benefits li {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    color: #666;
+}
+
+.benefits li svg {
+    width: 14px;
+    height: 14px;
+    color: #C6A85A;
+    flex-shrink: 0;
+}
+
+@media (max-width: 480px) {
+    .benefits {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .bigBtn {
+        font-size: 0.9rem !important;
+        padding: 18px 32px !important;
+    }
+}
