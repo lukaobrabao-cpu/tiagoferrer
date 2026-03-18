@@ -44,8 +44,9 @@ export default function Contact() {
                                 </div>
                                 <div>
                                     <strong>Horário</strong>
-                                    <p>Segunda a Sábado</p>
-                                    <p>9h às 19h – <span className="gold-text">Apenas com hora marcada</span></p>
+                                    <p>Segunda a Sexta: 10h às 20h</p>
+                                    <p>Sábado: 9h às 20h</p>
+                                    <p><span className="gold-text">Apenas com hora marcada</span></p>
                                 </div>
                             </div>
 
